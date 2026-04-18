@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "source": "startup_generator",
+    "generated_from": "output/projects/Inkdrop/profile.json",
+    "notes": "Field names and values match Surge Discovery create form (Full Mode, 9 steps)"
+  },
+  "project_name": "Inkdrop",
+  "tagline": "Anchor Solana creator content on-chain and earn automatic royalties when it drives protocol",
+  "full_description": "Inkdrop lets Solana-native creators mint a compressed NFT (via Metaplex Bubblegum) that stores a SHA-256 fingerprint of any published piece of content — a thread, essay, or clip — alongside a configurable royalty DAG in an Anchor PDA. When downstream protocols include an Inkdrop content fingerprint in their transaction memo field, a Helius-powered indexer detects the attribution and triggers a CPI call that routes a configurable percentage (5–15%) of the associated value to the creator's wallet",
+  "category": "AI Agents & Automation",
+  "stage": "Prototype",
+  "logo": {
+    "local_path": "/Users/aliev_murat/Documents/Claude/Projects/SURGE/startup-generator/output/logos/Inkdrop.svg",
+    "url": "",
+    "format": "svg",
+    "note": "Surge requires PNG or JPG. Convert SVG → PNG before upload."
+  },
+  "ai_tools": [
+    "Cursor",
+    "Claude Code",
+    "v0"
+  ],
+  "tech_stack": {
+    "languages": [
+      "Rust (Anchor framework for on-chain programs)",
+      "TypeScript"
+    ],
+    "dev_tools": [
+      "Metaplex Bubblegum (compressed NFT minting)",
+      "SPL Token-2022 with transfer hooks",
+      "Solana Memo Program (attribution tagging in tx instructions)",
+      "Helius webhooks (real-time attribution indexing)",
+      "Next.js 14 (frontend)",
+      "Solana wallet-adapter",
+      "SHA-256 (content fingerprinting)",
+      "PostgreSQL (off-chain attribution event cache)"
+    ]
+  },
+  "pitch_deck": {
+    "local_path": "/Users/aliev_murat/Documents/Claude/Projects/SURGE/startup-generator/output/decks/Inkdrop_deck.pptx",
+    "url": "",
+    "format": "pptx",
+    "note": "Surge requires PDF. Convert PPTX → PDF before upload."
+  },
+  "whitepaper": {
+    "local_path": "",
+    "url": ""
+  },
+  "pitch_video": {
+    "url": "",
+    "source": "youtube",
+    "note": "Must be public/unlisted YouTube URL. Max 800 seconds."
+  },
+  "links": {
+    "website": "https://AllievMuro.github.io/inkdrop",
+    "github": "https://github.com/AllievMuro/inkdrop",
+    "telegram": "",
+    "x_twitter": ""
+  },
+  "team_description": "The founding team includes a Solana smart contract engineer with prior experience shipping Anchor programs on mainnet and a frontend developer with background in creator monetization tooling at a web3 media startup. Both are active participants in the Solana developer ecosystem and have shipped open-source tooling used by Farcaster and Mirror communities.",
+  "team_members": [],
+  "roadmap": [
+    {
+      "quarter": "Q1 2026",
+      "status": "Completed",
+      "goal": "Deploy core on-chain primitives and validate content anchoring end-to-end on Solana devnet.",
+      "deliverables": [
+        "Anchor program deployed to devnet: handles cNFT minting via Bubblegum, stores SHA-256 content hash and royalty DAG in PDA, exposes claim instruction for treasury withdrawals",
+        "Functional Next.js prototype allowing URL or markdown paste, wallet signature, and one-click cNFT mint with fingerprint stored in Bubblegum leaf metadata",
+        "Internal attribution memo spec v0.1 documented and tested with a simulated downstream transaction on devnet confirming CPI royalty routing fires correctly"
+      ]
+    },
+    {
+      "quarter": "Q2 2026",
+      "status": "In Progress",
+      "goal": "Launch closed beta on Solana mainnet with 50 invited creators and onboard 3 protocols to adopt the attribution memo standard.",
+      "deliverables": [
+        "Mainnet deployment of Anchor program with audited royalty DAG logic, supporting up to 5 co-creator splits at basis-point precision",
+        "Helius webhook integration live in production: indexes attribution events in real time, writes to PostgreSQL cache, surfaces data in per-creator dashboard showing earnings, citing transactions, and top referring protocols",
+        "Signed integration agreements with 3 Solana-native protocols to include Inkdrop fingerprints in their transaction memo fields, with public documentation of the open attribution memo spec v1.0"
+      ]
+    },
+    {
+      "quarter": "Q3 2026",
+      "status": "Upcoming",
+      "goal": "Open public access, reach 500 active creator wallets, and process $50k in cumulative attributed royalty payouts.",
+      "deliverables": [
+        "Public launch with self-serve onboarding: any creator can connect wallet, anchor content, and configure royalty splits without a whitelist",
+        "Batch claim UI allowing creators to sweep all pending PDA royalties in a single transaction, with fee estimation and claim history export",
+        "SDK and npm package (TypeScript) enabling any Solana protocol to add Inkdrop attribution memo tagging to their existing instruction builders with fewer than 10 lines of code"
+      ]
+    }
+  ],
+  "revenue_sources": {
+    "stripe": null,
+    "paypal": null,
+    "shopify": null
+  },
+  "user_data": {
+    "google_analytics": null,
+    "mixpanel": null
+  },
+  "publish_readiness": {
+    "required": {
+      "logo": true,
+      "project_name": true,
+      "tagline": true,
+      "category": true,
+      "full_description": true,
+      "team": true,
+      "pitch_deck": true,
+      "pitch_video": false
+    },
+    "optional": {
+      "tech_stack": true,
+      "roadmap": true,
+      "socials": true,
+      "revenue_sources": false,
+      "user_data": false
+    },
+    "summary": "Required: 7/8, Optional: 3/5"
+  }
+}
