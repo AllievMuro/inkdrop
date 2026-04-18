@@ -1,0 +1,57 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ink-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+    <linearGradient id="ink-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <filter id="ink-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#020617"/>
+
+  <!-- Main drop shape — large ink drop centered -->
+  <!-- Drop path: rounded top, pointed bottom -->
+  <path d="M256 100
+    C256 100 170 190 170 280
+    C170 328.6 208.6 368 256 368
+    C303.4 368 342 328.6 342 280
+    C342 190 256 100 256 100 Z"
+    fill="url(#ink-grad1)" filter="url(#ink-glow)"/>
+
+  <!-- NEGATIVE SPACE: chain link / infinity loop inside the drop, hinting at on-chain asset -->
+  <!-- Left oval of chain link -->
+  <ellipse cx="236" cy="280" rx="28" ry="18" fill="none" stroke="#020617" stroke-width="11" stroke-linecap="round"/>
+  <!-- Right oval of chain link -->
+  <ellipse cx="276" cy="280" rx="28" ry="18" fill="none" stroke="#020617" stroke-width="11" stroke-linecap="round"/>
+  <!-- Overlap mask: cover right half of left oval and left half of right oval to create interlock -->
+  <!-- Left oval right-side cover -->
+  <rect x="248" y="262" width="16" height="36" fill="url(#ink-grad1)"/>
+  <!-- Right oval left-side cover -->
+  <rect x="248" y="262" width="16" height="36" fill="url(#ink-grad1)"/>
+
+  <!-- Re-draw interlock correctly using clipping approach -->
+  <!-- Draw left ring, clip so only left half shows on top -->
+  <!-- Full redraw with proper interlock -->
+  <!-- Left ring back -->
+  <path d="M208 280 A28 18 0 0 1 264 280 A28 18 0 0 1 208 280 Z" fill="none" stroke="#020617" stroke-width="11"/>
+  <!-- Right ring -->
+  <path d="M248 280 A28 18 0 0 1 304 280 A28 18 0 0 1 248 280 Z" fill="none" stroke="#020617" stroke-width="11"/>
+  <!-- Left ring front (top arc only, drawn over right ring) -->
+  <path d="M208 280 A28 18 0 0 0 264 280" fill="none" stroke="#020617" stroke-width="11"/>
+
+  <!-- Wordmark -->
+  <text x="256" y="430" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="48" font-weight="700" letter-spacing="3"
+    fill="#E0E7FF" text-anchor="middle" dominant-baseline="middle">inkdrop</text>
+
+  <!-- Subtle tagline dot accent -->
+  <circle cx="256" cy="460" r="3" fill="#6366F1" opacity="0.7"/>
+</svg>
